@@ -11,7 +11,7 @@ const PlacesList = props => (
                 key={item.key}
                 item={item.name}
                 image={item.image}
-                onItemPressed={() => props.handleRemovePlace(item.key)}
+                onItemPressed={() => props.handleSelectPlace(item.key)}
             />
         )}
     />

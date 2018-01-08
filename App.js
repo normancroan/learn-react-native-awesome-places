@@ -17,7 +17,7 @@ export default class App extends React.Component {
 
 		this.setState(prevState => {
 			return {
-				places: [...prevState.places, {key: uuid(), name: place, image: placeImage}]
+				places: [...prevState.places, {key: uuid(), name: place, image: { uri: "http://wallpaperose.com/wp-content/uploads/2013/08/Summer-Paradise-Wallpaper-1024x576.jpg"}}]
 			};
 		});
 	};

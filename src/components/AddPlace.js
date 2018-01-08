@@ -2,13 +2,9 @@ import React from "react";
 import { View, Button, TextInput, StyleSheet } from "react-native";
 
 class AddPlace extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			placeNameInput: ""
-		};
-	}
+    state = {
+        placeNameInput: ""
+    }
 
 	onPlaceNameChange = placeNameInput => {
 		this.setState({ placeNameInput });

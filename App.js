@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import uuid from "uuid";
 import PlacesList from "./src/components/PlacesList";
 import AddPlace from "./src/components/AddPlace";
+import placeImage from "./src/img/paradise.png";
 
 export default class App extends React.Component {
 	state = {
@@ -16,7 +17,7 @@ export default class App extends React.Component {
 
 		this.setState(prevState => {
 			return {
-				places: [...prevState.places, {key: uuid(), value: place}]
+				places: [...prevState.places, {key: uuid(), name: place, image: placeImage}]
 			};
 		});
 	};

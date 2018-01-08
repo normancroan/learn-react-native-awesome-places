@@ -4,7 +4,7 @@ import PlacesListItem from "./PlacesListItem";
 
 const PlacesList = props => (
 	<View style={styles.placesList}>
-        {props.places.map((place, i) => <PlacesListItem key={i} item={place}/>)}
+        {props.places.map((place, i) => <PlacesListItem key={i} item={place} onItemPressed={() => props.handleRemovePlace(i)}/>)}
 	</View>
 );
 

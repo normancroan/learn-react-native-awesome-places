@@ -20,11 +20,22 @@ export default class App extends React.Component {
 		});
 	};
 
+	onPlaceRemove = id => {
+		this.setState(prevState => {
+			return {
+				places: prevState.places.filter((place, i) => i !== id)
+			};
+		});
+	};
+
 	render() {
 		return (
 			<View style={styles.container}>
-				<AddPlace submitFunction={this.onPlaceNameSubmit}/>
-				<PlacesList places={this.state.places}/>
+				<AddPlace submitFunction={this.onPlaceNameSubmit} />
+				<PlacesList
+					places={this.state.places}
+					handleRemovePlace={this.onPlaceRemove}
+				/>
 			</View>
 		);
 	}

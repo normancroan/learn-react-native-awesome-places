@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import uuid from "uuid";
 import PlacesList from "./src/components/PlacesList";
 import AddPlace from "./src/components/AddPlace";
 
@@ -15,7 +16,7 @@ export default class App extends React.Component {
 
 		this.setState(prevState => {
 			return {
-				places: [...prevState.places, place]
+				places: [...prevState.places, {key: uuid(), value: place}]
 			};
 		});
 	};
@@ -23,7 +24,7 @@ export default class App extends React.Component {
 	onPlaceRemove = id => {
 		this.setState(prevState => {
 			return {
-				places: prevState.places.filter((place, i) => i !== id)
+				places: prevState.places.filter(place => place.key !== id)
 			};
 		});
 	};

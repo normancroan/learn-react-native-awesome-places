@@ -5,63 +5,47 @@ import PlacesList from "./src/components/PlacesList";
 import AddPlace from "./src/components/AddPlace";
 import placeImage from "./src/img/paradise.png";
 import PlaceModal from "./src/components/PlaceModal";
+import { connect } from "react-redux";
+import {
+	addPlace,
+	removePlace,
+	selectedPlace,
+	deselectPlace,
+	selectPlace
+} from "./src/actions/places";
 
-export default class App extends React.Component {
-	state = {
-		places: [],
-		selectedPlace: null
-	};
-
+class App extends React.Component {
 	onPlaceNameSubmit = place => {
 		if (place.trim() === "") {
 			return;
 		}
-
-		this.setState(prevState => {
-			return {
-				places: [
-					...prevState.places,
-					{
-						key: uuid(),
-						name: place,
-						image: {
-							uri:
-								"http://wallpaperose.com/wp-content/uploads/2013/08/Summer-Paradise-Wallpaper-1024x576.jpg"
-						}
-					}
-				]
-			};
-		});
+		this.props.onAddPlace(place);
 	};
 
 	onPlaceRemove = () => {
-		this.setState(prevState => {
-			return {
-				places: prevState.places.filter(place => place.key !== prevState.selectedPlace.key),
-				selectedPlace: null
-			};
-		});
+		this.props.onRemovePlace();
+		this.props.onDeselectPlace();
 	};
 
 	onPlaceSelected = key => {
-		this.setState(prevState => {
-			return {
-				selectedPlace: prevState.places.find(place => place.key === key)
-			};
-		});
+		this.props.onSelectPlace(key);
+	};
+
+	onModalClose = () => {
+		this.props.onDeselectPlace();
 	};
 
 	render() {
 		return (
 			<View style={styles.container}>
-				<PlaceModal 
-					selectedPlace={this.state.selectedPlace}
-					handleCloseModal={() => this.setState({selectedPlace:null})}
+				<PlaceModal
+					selectedPlace={this.props.selectedPlace}
+					handleCloseModal={this.onModalClose}
 					handleRemovePlace={this.onPlaceRemove}
 				/>
 				<AddPlace submitFunction={this.onPlaceNameSubmit} />
 				<PlacesList
-					places={this.state.places}
+					places={this.props.places}
 					handleRemovePlace={this.onPlaceRemove}
 					handleSelectPlace={this.onPlaceSelected}
 				/>
@@ -79,3 +63,21 @@ const styles = StyleSheet.create({
 		padding: 20
 	}
 });
+
+const mapStateToProps = state => {
+	return {
+		places: state.places.places,
+		selectedPlace: state.places.selectedPlace
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onAddPlace: placeName => dispatch(addPlace(placeName)),
+		onRemovePlace: () => dispatch(removePlace()),
+		onSelectPlace: key => dispatch(selectPlace(key)),
+		onDeselectPlace: () => dispatch(deselectPlace())
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

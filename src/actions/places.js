@@ -21,18 +21,3 @@ export const removePlace = key => {
 		key
 	};
 };
-
-//SELECT_PLACE
-export const selectPlace = key => {
-	return {
-		type: "SELECT_PLACE",
-		key
-	};
-};
-
-//DESELECT_PLACE
-export const deselectPlace = () => {
-	return {
-		type: "DESELECT_PLACE"
-	};
-};

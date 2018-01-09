@@ -1,6 +1,5 @@
 const placesReducerInitialState = {
-	places: [],
-	selectedPlace: null
+	places: []
 };
 
 const placesReducer = (state = placesReducerInitialState, action) => {
@@ -14,16 +13,6 @@ const placesReducer = (state = placesReducerInitialState, action) => {
 			return {
 				...state,
 				places: [...state.places.filter(place => place.key !== state.selectedPlace.key)]
-			};
-		case "SELECT_PLACE":
-			return {
-				...state,
-				selectedPlace: state.places.find(place => place.key === action.key)
-			};
-		case "DESELECT_PLACE":
-			return {
-				...state,
-				selectedPlace: null
 			};
 		default:
 			return state;

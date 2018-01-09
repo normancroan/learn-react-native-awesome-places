@@ -1,12 +1,25 @@
 import React, { Component } from "react";
-import { View, Text, Button, Dimensions, StyleSheet } from "react-native";
+import {
+	View,
+	Text,
+	Button,
+	Dimensions,
+	StyleSheet,
+	TouchableOpacity
+} from "react-native";
 
 class SideDrawer extends Component {
 	render() {
 		return (
-			<View style={[styles.container,{ width: Dimensions.get("window").width * 0.8 }]}>
-				<Text>Some text here</Text>
-				<Button title="Apparently text isn't sufficient on it's own"/>
+			<View
+				style={[
+					styles.container,
+					{ width: Dimensions.get("window").width * 0.8 }
+				]}
+			>
+				<View style={styles.secondContainer}>
+					<Text>Some more text in another view</Text>
+				</View>
 			</View>
 		);
 	}
@@ -17,7 +30,10 @@ const styles = StyleSheet.create({
 		paddingTop: 22,
 		backgroundColor: "white",
 		flex: 1
+	},
+	secondContainer: {
+		flex: 1
 	}
-})
+});
 
 export default SideDrawer;

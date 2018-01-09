@@ -8,6 +8,8 @@ import {
 	TouchableOpacity
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { connect } from "react-redux";
+import { removePlace } from "../../actions/places";
 
 const PlaceDetail = props => {
 	return (
@@ -17,7 +19,12 @@ const PlaceDetail = props => {
 				<Text style={styles.placeText}>{props.selectedPlace.name}</Text>
 			</View>
 			<View>
-				<TouchableOpacity onPress={props.handleRemovePlace}>
+				<TouchableOpacity
+					onPress={() => {
+						props.onRemovePlace(props.selectedPlace.key);
+						props.navigator.pop();
+					}}
+				>
 					<View style={styles.deleteButton}>
 						<Icon name="ios-trash" size={30} color="red" />
 					</View>
@@ -44,4 +51,11 @@ const styles = StyleSheet.create({
 		alignItems: "center"
 	}
 });
-export default PlaceDetail;
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onRemovePlace: key => dispatch(removePlace(key))
+	};
+};
+
+export default connect(null, mapDispatchToProps)(PlaceDetail);

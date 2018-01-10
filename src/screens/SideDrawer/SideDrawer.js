@@ -18,8 +18,9 @@ class SideDrawer extends Component {
 				]}
 			>
 				<View style={styles.secondContainer}>
-					<Text>Some more text in another view</Text>
+					<Text>Some text here</Text>
 				</View>
+				{true && <Button title="test" />/*bug in emulator, this doesn't render but does allow for the drawer to render*/}
 			</View>
 		);
 	}
@@ -32,7 +33,9 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	secondContainer: {
-		flex: 1
+		flex: 1,
+		width: "100%",
+		padding: 5
 	}
 });
 

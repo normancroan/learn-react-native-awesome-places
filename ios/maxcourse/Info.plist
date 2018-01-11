@@ -67,6 +67,24 @@
 		<string>Fira Mono 500.ttf</string>
 		<string>Fira Mono 700.ttf</string>
 		<string>Fira Mono regular.ttf</string>
+		<string>Fira Sans 100.ttf</string>
+		<string>Fira Sans 100italic.ttf</string>
+		<string>Fira Sans 200.ttf</string>
+		<string>Fira Sans 200italic.ttf</string>
+		<string>Fira Sans 300.ttf</string>
+		<string>Fira Sans 300italic.ttf</string>
+		<string>Fira Sans 500.ttf</string>
+		<string>Fira Sans 500italic.ttf</string>
+		<string>Fira Sans 600.ttf</string>
+		<string>Fira Sans 600italic.ttf</string>
+		<string>Fira Sans 700.ttf</string>
+		<string>Fira Sans 700italic.ttf</string>
+		<string>Fira Sans 800.ttf</string>
+		<string>Fira Sans 800italic.ttf</string>
+		<string>Fira Sans 900.ttf</string>
+		<string>Fira Sans 900italic.ttf</string>
+		<string>Fira Sans italic.ttf</string>
+		<string>Fira Sans regular.ttf</string>
 	</array>
 </dict>
 </plist>

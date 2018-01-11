@@ -9,8 +9,7 @@ const styles = StyleSheet.create({
 	Primary: {
 		color: "black",
 		backgroundColor: "transparent",
-		fontFamily: "Fira Mono regular"
-	}
+		fontFamily: "Fira Sans 300italic"	}
 });
 
 export default PrimaryText;

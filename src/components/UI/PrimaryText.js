@@ -7,7 +7,9 @@ const PrimaryText = props => (
 
 const styles = StyleSheet.create({
 	Primary: {
-		color: "black"
+		color: "black",
+		backgroundColor: "transparent",
+		fontFamily: "Fira Mono regular"
 	}
 });
 
